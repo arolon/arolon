@@ -8,12 +8,20 @@
 	--color-bg-1: hsl(209, 36%, 86%);
 	--color-bg-2: hsl(224, 44%, 95%);
 	--color-theme-1: #465362;
-	--color-theme-2: #9FC490;
+	--color-theme-2: #9fc490;
 	--color-text: #011936;
 	--column-width: 42rem;
 	--column-margin-top: 4rem;
 	font-family: var(--font-body);
 	color: var(--color-text);
+}
+:root body.dark-mode {
+	--color-bg-0: #0d0d0d; /* Dark background color */
+	--color-bg-1: #1a1a1a; /* Slightly lighter background color */
+	--color-bg-2: #262626; /* Even lighter background color */
+	--color-theme-1: #c8d8e4; /* Light accent color */
+	--color-theme-2: #465362; /* Dark accent color */
+	--color-text: #e5e5e5; /* Text color on dark background */
 }
 
 body {
@@ -24,10 +32,14 @@ body {
 	background-size: 100vw 100vh;
 	background-image: radial-gradient(
 			50% 50% at 50% 50%,
-			rgba(255, 255, 255, 0.75) 0%,
+			rgba(255, 255, 255, 0.25) 0%,
 			rgba(255, 255, 255, 0) 100%
 		),
 		linear-gradient(180deg, var(--color-bg-0) 0%, var(--color-bg-1) 15%, var(--color-bg-2) 50%);
+}
+
+body.dark-mode {
+	color: var(--color-text);
 }
 
 h1,

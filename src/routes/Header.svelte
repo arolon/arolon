@@ -1,12 +1,38 @@
 <script>
 	import { page } from '$app/stores';
 	import logo from '$lib/images/avatarFRCircle.png';
-	import github from '$lib/images/github.svg';
 	import Icon from 'svelte-awesome';
-	import refresh from 'svelte-awesome/icons/refresh';
+	import lightbulb from 'svelte-awesome/icons/lightbulbO';
+  import moon from 'svelte-awesome/icons/moonO';
+	import language from 'svelte-awesome/icons/language';
+	import linkedin from 'svelte-awesome/icons/linkedin';
+	import github from 'svelte-awesome/icons/github';
 	import { onMount } from 'svelte';
 
   let scrollPosition = 0;
+	let color = '#011936';
+	let theme = false;
+	let moonElement, lightbulbElement;
+	
+	const handleTheme = () => {
+		console.log(theme)
+		if (theme === false) {
+			theme = true;
+			document.body.classList.add('dark-mode');
+			moonElement.style.display = 'none';
+			lightbulbElement.style.display = 'block';
+		} else {
+			theme = false;
+			document.body.classList.remove('dark-mode')
+			moonElement.style.display = 'block';
+			lightbulbElement.style.display = 'none';
+		}
+	}
+	
+	const handleScroll = () => {
+		scrollPosition = window.scrollY;
+	}
+
 
 	onMount(() => {
     document.addEventListener('scroll', handleScroll);
@@ -15,15 +41,12 @@
     };
   });
 
-  function handleScroll() {
-    scrollPosition = window.scrollY;
-  }
 </script>
 
 <header>
 	<div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
+		<a href="#">
+			<img src={logo} alt="FelipeRolonLogo" />
 		</a>
 	</div>
 
@@ -37,11 +60,23 @@
 		</ul>
 	</nav>
 
-	<div class="corner">
-		<Icon data={refresh} scale="6" />
-		<a href="https://github.com/sveltejs/kit">
-			<img src={github} alt="GitHub" />
+	<div class="corner-right">
+		<a href="https://www.linkedin.com/in/alvaro-rolon/" target="_blank" >
+			<Icon data={linkedin} scale="2" color={color} label='Linkedin'/>
 		</a>
+		<a href="https://github.com/arolon" target="_blank"  >
+			<Icon data={github} scale="2" color={color}/>
+		</a>
+		<a href="#" on:click={handleTheme} bind:this={lightbulbElement}>
+			<Icon data={lightbulb} scale="2" color={color} />
+		</a>
+		<a href="#" on:click={handleTheme} bind:this={moonElement}>
+			<Icon data={moon} scale="2" color={color} />
+		</a>
+		<a href="#">
+			<Icon data={language} scale="2" color={color} />
+		</a>
+		
 	</div>
 </header>
 
@@ -54,8 +89,8 @@
 	}
 
 	.corner {
-		width: 3em;
-		height: 3em;
+		width: 5em;
+		height: 5em;
 	}
 
 	.corner a {
@@ -67,9 +102,19 @@
 	}
 
 	.corner img {
-		width: 2em;
-		height: 2em;
+		width: 4em;
+		height: 4em;
 		object-fit: contain;
+	}
+
+	.corner-right {
+		display: flex;		
+		align-items: center;
+		justify-content: center;
+		padding-right: 0.5em;
+	}
+	.corner-right a {
+		padding: 0 0.1em;
 	}
 
 	nav {
