@@ -3,44 +3,61 @@
 	import logo from '$lib/images/avatarFRCircle.png';
 	import Icon from 'svelte-awesome';
 	import lightbulb from 'svelte-awesome/icons/lightbulbO';
-  import moon from 'svelte-awesome/icons/moonO';
+	import moon from 'svelte-awesome/icons/moonO';
 	import language from 'svelte-awesome/icons/language';
 	import linkedin from 'svelte-awesome/icons/linkedin';
 	import github from 'svelte-awesome/icons/github';
 	import { onMount } from 'svelte';
 
-  let scrollPosition = 0;
-	let color = '#011936';
+	import { t, locale, locales } from '$lib/text/i18n';
+
+	let scrollPosition = 0;
+	let color = '#465362';
 	let theme = false;
+	let currentLanguage = 'en'
 	let moonElement, lightbulbElement;
+
 	
+
 	const handleTheme = () => {
-		console.log(theme)
+		console.log(theme);
 		if (theme === false) {
 			theme = true;
 			document.body.classList.add('dark-mode');
 			moonElement.style.display = 'none';
 			lightbulbElement.style.display = 'block';
+			color = '#70b1e3';
 		} else {
 			theme = false;
-			document.body.classList.remove('dark-mode')
+			document.body.classList.remove('dark-mode');
 			moonElement.style.display = 'block';
 			lightbulbElement.style.display = 'none';
+			color = '#465362';
 		}
-	}
-	
+	};
+
+	const handleLanguage = () => {
+		console.log(currentLanguage);
+		console.log($locale)
+		if (currentLanguage === 'en') {
+			currentLanguage = 'es';
+			$locale = 'es';
+		} else {
+			currentLanguage = 'en';
+			$locale = 'en';
+		}
+	};
+
 	const handleScroll = () => {
 		scrollPosition = window.scrollY;
-	}
-
+	};
 
 	onMount(() => {
-    document.addEventListener('scroll', handleScroll);
-    return () => {
-      document.removeEventListener('scroll', handleScroll);
-    };
-  });
-
+		document.addEventListener('scroll', handleScroll);
+		return () => {
+			document.removeEventListener('scroll', handleScroll);
+		};
+	});
 </script>
 
 <header>
@@ -52,8 +69,8 @@
 
 	<nav>
 		<ul class="collapsed">
-			{#each ['Home', 'About', 'Sverdle'] as item, index}
-				<li style='--position:{scrollPosition};'>
+			{#each $t('header.sections') as item, index}
+				<li style="--position:{scrollPosition};">
 					<a href={`/${item.toLowerCase()}`}>{item}</a>
 				</li>
 			{/each}
@@ -61,22 +78,21 @@
 	</nav>
 
 	<div class="corner-right">
-		<a href="https://www.linkedin.com/in/alvaro-rolon/" target="_blank" >
-			<Icon data={linkedin} scale="2" color={color} label='Linkedin'/>
+		<a href="https://www.linkedin.com/in/alvaro-rolon/" target="_blank">
+			<Icon data={linkedin} scale="2" {color} label="Linkedin" />
 		</a>
-		<a href="https://github.com/arolon" target="_blank"  >
-			<Icon data={github} scale="2" color={color}/>
+		<a href="https://github.com/arolon" target="_blank">
+			<Icon data={github} scale="2" {color} />
 		</a>
-		<a href="#" on:click={handleTheme} bind:this={lightbulbElement}>
-			<Icon data={lightbulb} scale="2" color={color} />
+		<a href="#" on:click={handleTheme} bind:this={lightbulbElement} style="display: none;">
+			<Icon data={lightbulb} scale="2" {color} />
 		</a>
 		<a href="#" on:click={handleTheme} bind:this={moonElement}>
-			<Icon data={moon} scale="2" color={color} />
+			<Icon data={moon} scale="2" {color} />
 		</a>
-		<a href="#">
-			<Icon data={language} scale="2" color={color} />
+		<a href="#" on:click={handleLanguage}>
+			<Icon data={language} scale="2" {color} />
 		</a>
-		
 	</div>
 </header>
 
@@ -90,7 +106,7 @@
 
 	.corner {
 		width: 5em;
-		height: 5em;
+		height: 3em;
 	}
 
 	.corner a {
@@ -102,25 +118,28 @@
 	}
 
 	.corner img {
-		width: 4em;
-		height: 4em;
+		width: 2em;
+		height: 2em;
 		object-fit: contain;
 	}
 
 	.corner-right {
-		display: flex;		
+		display: flex;
 		align-items: center;
 		justify-content: center;
 		padding-right: 0.5em;
 	}
 	.corner-right a {
 		padding: 0 0.1em;
+		width: 2em;
+		height: 2em;
+		text-align: center;
 	}
 
 	nav {
 		display: flex;
 		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
+		--background: rgba(255, 255, 255, 0.2);
 	}
 
 	/* svg {
@@ -168,11 +187,11 @@
 	}
 
 	.collapsed li {
-    position: relative;
-    padding: 0.5em 0;
-    transition: top 0.3s ease; /* Add smooth transition effect */
-    top: calc( (var(--position) * -0.1px) + 2em );/* Adjust the division factor as needed */
-  }
+		position: relative;
+		padding: 0.5em 0;
+		transition: top 0.3s ease; /* Add smooth transition effect */
+		top: calc((var(--position) * 	-0.1px ) + 3em); /* Adjust the division factor as needed */
+	}
 
 	nav a {
 		display: flex;

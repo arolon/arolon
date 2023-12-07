@@ -19,7 +19,7 @@
 	--color-bg-0: #0d0d0d; /* Dark background color */
 	--color-bg-1: #1a1a1a; /* Slightly lighter background color */
 	--color-bg-2: #262626; /* Even lighter background color */
-	--color-theme-1: #c8d8e4; /* Light accent color */
+	--color-theme-1: #70b1e3; /* Light accent color */
 	--color-theme-2: #465362; /* Dark accent color */
 	--color-text: #e5e5e5; /* Text color on dark background */
 }
@@ -32,14 +32,21 @@ body {
 	background-size: 100vw 100vh;
 	background-image: radial-gradient(
 			50% 50% at 50% 50%,
-			rgba(255, 255, 255, 0.25) 0%,
+			rgba(255, 255, 255, 0.75) 0%,
 			rgba(255, 255, 255, 0) 100%
 		),
 		linear-gradient(180deg, var(--color-bg-0) 0%, var(--color-bg-1) 15%, var(--color-bg-2) 50%);
+		transition: all 1s ease;
 }
 
 body.dark-mode {
 	color: var(--color-text);
+	background-image: radial-gradient(
+			50% 50% at 50% 50%,
+			rgba(255, 255, 255, 0.1) 0%,
+			rgba(255, 255, 255, 0) 100%
+		),
+		linear-gradient(180deg, var(--color-bg-0) 0%, var(--color-bg-1) 15%, var(--color-bg-2) 50%);
 }
 
 h1,
