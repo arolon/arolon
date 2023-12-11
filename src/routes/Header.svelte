@@ -11,11 +11,12 @@
 
 	import { t, locale, locales } from '$lib/text/i18n';
 
-	let scrollPosition = 0;
+	export let scrollPosition = 0;
+	export let scrollPosProportion = 0;
 	let color = '#465362';
 	let theme = false;
 	let currentLanguage = 'en'
-	let moonElement, lightbulbElement;
+	let moonElement, lightbulbElement, headerElement;
 
 	
 
@@ -50,7 +51,16 @@
 
 	const handleScroll = () => {
 		scrollPosition = window.scrollY;
+		scrollPosProportion = scrollPosition * 944.7 / (document.documentElement.scrollHeight - document.documentElement.clientHeight)
 	};
+
+	const handleHover = () => {
+		headerElement.classList.remove('collapsed')
+	}
+
+	const handleHoverOut = () => {
+		headerElement.classList.add('collapsed')
+	}
 
 	onMount(() => {
 		document.addEventListener('scroll', handleScroll);
@@ -60,17 +70,18 @@
 	});
 </script>
 
-<header>
+<header bind:this={headerElement} class="collapsed">
 	<div class="corner">
 		<a href="#">
 			<img src={logo} alt="FelipeRolonLogo" />
 		</a>
 	</div>
 
-	<nav>
-		<ul class="collapsed">
+	<!-- svelte-ignore a11y-mouse-events-have-key-events -->
+	<nav on:mouseover={handleHover} on:mouseleave={handleHoverOut}>
+		<ul class="" style="--position:{scrollPosition}; --scrollPosProportion:{scrollPosProportion};">
 			{#each $t('header.sections') as item, index}
-				<li style="--position:{scrollPosition};">
+				<li>
 					<a href={`/${item.toLowerCase()}`}>{item}</a>
 				</li>
 			{/each}
@@ -176,21 +187,27 @@
 		height: 0;
 		position: absolute;
 		right: 0;
-		top: calc(50% - var(--size));
+		top: calc((var(--scrollPosProportion) * 100% / 944.7) - var(--size));
 		border: var(--size) solid transparent;
 		border-right: var(--size) solid var(--color-theme-1);
+	}
+
+	.collapsed ul::before {
+		top: calc(50% - var(--size));
 	}
 
 	.collapsed {
 		height: 2em;
 		overflow-y: hidden;
 	}
+	ul li {
+		padding: 0.5em 0;
+		transition: top 0.3s ease;
+	}
 
 	.collapsed li {
 		position: relative;
-		padding: 0.5em 0;
-		transition: top 0.3s ease; /* Add smooth transition effect */
-		top: calc((var(--position) * 	-0.1px ) + 3em); /* Adjust the division factor as needed */
+		top: calc((var(--scrollPosProportion) * 	-0.1px ) + 3em);
 	}
 
 	nav a {
