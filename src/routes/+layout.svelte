@@ -2,6 +2,7 @@
 <script>
 	import Header from './Header.svelte';
   import './styles.css';
+	import { t, locale, locales } from '$lib/text/i18n';
 </script>
 
 <div class="app">
@@ -12,7 +13,7 @@
 	</main>
 
 	<footer>
-		<p>Visit my <a href="https://www.linkedin.com/in/alvaro-rolon/">Linekdin</a> profile for more info</p>
+		{@html $t('homepage.linkedinText')}
 	</footer>
 </div>
 

@@ -15,8 +15,9 @@
 	export let scrollPosProportion = 0;
 	let color = '#465362';
 	let theme = false;
-	let currentLanguage = 'en'
+	var currentLanguage = 'en'
 	let moonElement, lightbulbElement, headerElement;
+	let collapsedVar = true;
 
 	
 
@@ -55,11 +56,15 @@
 	};
 
 	const handleHover = () => {
-		headerElement.classList.remove('collapsed')
+		headerElement.classList.remove('collapsed');
 	}
 
 	const handleHoverOut = () => {
 		headerElement.classList.add('collapsed')
+	}
+
+	const heightAnimation = () => {
+
 	}
 
 	onMount(() => {
@@ -72,7 +77,7 @@
 
 <header bind:this={headerElement} class="collapsed">
 	<div class="corner">
-		<a href="#">
+		<a href="/">
 			<img src={logo} alt="FelipeRolonLogo" />
 		</a>
 	</div>
@@ -136,9 +141,9 @@
 
 	.corner-right {
 		display: flex;
-		align-items: center;
 		justify-content: center;
 		padding-right: 0.5em;
+		padding-top: 0.5em;
 	}
 	.corner-right a {
 		padding: 0 0.1em;
@@ -151,7 +156,14 @@
 		display: flex;
 		justify-content: center;
 		--background: rgba(255, 255, 255, 0.2);
+		height: auto;
+    overflow-y: hidden;
+		transition: all 2.5s ease;
 	}
+	.collapsed nav {
+		height: 2em;
+	}
+	
 
 	/* svg {
 		width: 2em;
@@ -197,7 +209,6 @@
 	}
 
 	.collapsed {
-		height: 2em;
 		overflow-y: hidden;
 	}
 	ul li {
@@ -221,7 +232,7 @@
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
 		text-decoration: none;
-		transition: color 0.2s linear;
+		transition: all 0.2s linear;
 	}
 
 	a:hover {
