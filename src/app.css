@@ -1,0 +1,51 @@
+/* src/app.css */
+
+/* Default Theme (Dark Mode) */
+:root {
+	--primary-color: rgba(220, 38, 38, 0.9); /* Opaque Red (Tailwind red-600 with opacity) */
+	--background-color: #0a0908; /* Very Dark Grey / Near Black */
+	--text-color: #f8f8f8; /* Off-white */
+	--text-secondary: #b0b0b0; /* Lighter grey for secondary text */
+	--card-bg: #1a1a1a; /* Dark background for cards */
+	--border-color: #333333; /* Dark border */
+	--tag-bg: #333333; /* Background for tags */
+	--tag-text: #f0f0f0; /* Text color for tags */
+	--accent-color: var(--primary-color); /* Use primary red as accent by default */
+	--button-text-color: #ffffff; /* White text for buttons with accent background */
+
+	/* Add other variables as needed */
+	color-scheme: dark; /* Hint for browser UI like scrollbars */
+}
+
+/* Light Mode Theme */
+[data-theme='light'] {
+	--primary-color: rgba(220, 38, 38, 0.9); /* Keep primary red */
+	--background-color: #ffffff; /* White */
+	--text-color: #1f1f1f; /* Dark grey for text */
+	--text-secondary: #555555; /* Medium grey for secondary text */
+	--card-bg: #f4f4f4; /* Light grey for cards */
+	--border-color: #dddddd; /* Light border */
+	--tag-bg: #e0e0e0; /* Light grey background for tags */
+	--tag-text: #333333; /* Dark text for tags */
+	--accent-color: var(--primary-color); /* Keep primary red as accent */
+	--button-text-color: #ffffff; /* Keep white text for buttons */
+
+	/* Add other variables as needed */
+	color-scheme: light;
+}
+
+/* Basic body styling using variables */
+body {
+	background-color: var(--background-color);
+	color: var(--text-color);
+	font-family: sans-serif; /* Add your preferred font */
+	margin: 0;
+	transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
+}
+
+/* Ensure links use appropriate colors */
+a {
+  color: var(--accent-color);
+}
+
+/* Add any other global styles here */

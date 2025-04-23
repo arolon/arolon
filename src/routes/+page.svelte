@@ -1,21 +1,123 @@
+<script>
+	import FaLinkedin from 'svelte-icons/fa/FaLinkedin.svelte';
+	import FaGithub from 'svelte-icons/fa/FaGithub.svelte';
+	import FaEnvelope from 'svelte-icons/fa/FaEnvelope.svelte';
+	import FaMedium from 'svelte-icons/fa/FaMedium.svelte';
+	import { modalOpened } from '$lib/store';
+</script>
+
 <svelte:head>
 	<title>Felipe Rolon - Portfolio</title>
-	<meta name="description" content="Felipe Rolon - Portfolio" />
 </svelte:head>
+<main>
+	<h1>Hi!✋ <br /> I'm Felipe a Developer 💻 based in Toronto</h1>
+	<div class="icons">
+		<div
+			role="button"
+			tabindex="0"
+			on:keypress={() => {
+				modalOpened.set(true);
+			}}
+			on:click={() => {
+				modalOpened.set(true);
+			}}
+		>
+			<div class="icon">
+				<FaEnvelope />
+			</div>
+		</div>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+		<a
+			href="https://github.com/arolon"
+			aria-label="GitHub"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<div class="icon">
+				<FaGithub />
+			</div>
+		</a>
+		<a
+			href="https://www.linkedin.com/in/alvaro-rolon/"
+			aria-label="Linkedin"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<div class="icon">
+				<FaLinkedin />
+			</div>
+		</a>
+		<!-- <a
+			href="https://medium.com/@ladvace"
+			aria-label="Medium"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<div class="icon">
+				<FaMedium />
+			</div>
+		</a> -->
+	</div>
+</main>
 
-<h1>
-  What is Lorem Ipsum?
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+<style>
+	a {
+		color: white;
+		text-decoration: none;
+	}
+	main {
+		text-align: center;
+		padding: 0;
+		margin: 0 auto;
+		text-align: center;
 
-Why do we use it?
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+		display: flex;
+		flex-direction: column;
+		height: calc(100vh - 80px - 88px);
+		justify-content: center;
+		align-items: center;
+	}
 
+	h1 {
+		font-weight: 700;
+	}
 
-Where does it come from?
-Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+	main > h1 {
+		margin: 50px 10px 0;
+		font-size: 36px;
+	}
 
-The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
-</h1>
+	.icons {
+		display: flex !important;
+		justify-content: center !important;
+		align-items: center;
+		gap: 20px;
+		cursor: pointer;
+		font-size: 30px;
+		display: flex;
+		justify-content: space-between;
+		max-width: 200px;
+		margin: 50px auto 0;
+	}
+
+	.icon {
+		cursor: pointer;
+		transition: color 0.2s ease-in-out;
+		width: 40px;
+	}
+	.icon:hover {
+		color: #ca3c25;
+	}
+
+	@media (min-width: 900px) {
+		main > h1 {
+			font-size: 48px;
+		}
+	}
+
+	@media (min-width: 600px) {
+		main {
+			max-width: none;
+		}
+	}
+</style>
