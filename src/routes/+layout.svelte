@@ -121,10 +121,6 @@
 
 <slot />
 
-<!-- <footer>
-	Created by <a class="me" href="/about">Ladvace</a> ❤️ with
-	<span class="svelte">Svelte</span>
-</footer> -->
 
 <style>
 	* {

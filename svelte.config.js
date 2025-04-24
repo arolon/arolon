@@ -15,9 +15,9 @@ const config = {
 			precompress: false, // GH Pages doesn't need precompressed files
 			strict: true
 		}),
-		// paths: {
-		// 	base: '/arolon',
-		// }
+		paths: {
+			base: '/arolon',
+		}
 	}
 };
 
