@@ -1,8 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+!DOCTYPE html>
+<html lang="en" data-theme="dark"> <!-- Added data-theme for consistency -->
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="./lib/assets/avatarFRCircle.png" />
+		<!-- Ensure this path starts with / -->
+		<link rel="icon" href="/avatarFRCircle.png" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -12,7 +13,7 @@
 
 		%sveltekit.head%
 	</head>
-	<body>
-		<div id="svelte">%sveltekit.body%</div>
+	<body data-sveltekit-preload-data="hover"> <!-- Added standard preload attribute -->
+		<div style="display: contents">%sveltekit.body%</div> <!-- Changed to display: contents -->
 	</body>
 </html>

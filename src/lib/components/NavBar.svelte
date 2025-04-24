@@ -1,15 +1,15 @@
 <script lang="ts">
 	import Burger from './Hamburger.svelte';
-	import Logo from '$lib/assets/avatarFRCircle.png';
 	import routes from '$lib/NavRoutes';
+	import { base } from '$app/paths';
 	let opened = false;
 	export let segment: string;
 </script>
 
 <div class={opened ? 'NavBar open' : 'NavBar'}>
 	<div class="innerContainer">
-		<a href="/">
-			<img src={Logo} alt="logo" class="logo" />
+		<a href="{base}/">
+			<img src="{base}/avatarFRCircle.png" alt="logo" class="logo" />
 		</a>
 		<div class="burger">
 			<Burger bind:open={opened} />

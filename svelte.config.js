@@ -1,6 +1,7 @@
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import adapter from '@sveltejs/adapter-static';
 
+/** @type {import('@sveltejs/kit').Config} */
 const config = {
 	preprocess: vitePreprocess(),
 
@@ -14,13 +15,8 @@ const config = {
 			precompress: false, // GH Pages doesn't need precompressed files
 			strict: true
 		}),
-
-		// IMPORTANT: If deploying to '<your-username>.github.io/<your-repo-name>'
-		// you MUST set the 'base' path.
-		// If deploying to '<your-username>.github.io', you can omit 'paths'.
 		// paths: {
-		// 	// Replace '<your-repo-name>' with your actual repository name
-		// 	base: process.env.NODE_ENV === 'production' ? '/<your-repo-name>' : '',
+		// 	base: '/arolon',
 		// }
 	}
 };
