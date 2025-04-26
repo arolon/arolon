@@ -9,8 +9,8 @@ const config = {
 			pages: 'docs',
 			assets: 'docs',
 			fallback: '404.html',
-			precompress: false, 
-			strict: true
+			// precompress: false, 
+			// strict: true
 		}),
 		paths: {
 			base: '/arolon',
