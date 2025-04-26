@@ -12,8 +12,12 @@ const routes = [
 		label: 'Projects'
 	},
 	{
-		href: '/blog',
+		href: '/games',
 		label: 'Games'
+	},
+	{
+		href: '/blog',
+		label: 'Articles'
 	}
 ];
 
