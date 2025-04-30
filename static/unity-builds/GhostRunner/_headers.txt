@@ -1,9 +1,0 @@
-/Build/*
-  Content-Encoding: br
-  Content-Type: application/javascript
-
-/*.wasm
-  Content-Type: application/wasm
-
-/index.html
-  Content-Type: text/html; charset=utf-8
