@@ -47,16 +47,6 @@
 				<FaLinkedin />
 			</div>
 		</a>
-		<!-- <a
-			href="https://medium.com/@ladvace"
-			aria-label="Medium"
-			target="_blank"
-			rel="noopener noreferrer"
-		>
-			<div class="icon">
-				<FaMedium />
-			</div>
-		</a> -->
 	</div>
 </main>
 

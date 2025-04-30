@@ -36,6 +36,6 @@ This website showcases my professional experience, projects, and skills in:
 
 Feel free to browse the code in this repository to see how the site was built.
 
-## Acknowledgements ❤️
+## Acknowledgements
 
 -   This portfolio was originally based on the SvelteKit-Portfolio template by Gianmarco ([Ladvace](https://github.com/Ladvace)).

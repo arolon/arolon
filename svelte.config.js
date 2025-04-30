@@ -6,11 +6,11 @@ const config = {
 	preprocess: [vitePreprocess()],
 	kit: {
 		adapter: adapter({
-			// pages: 'docs',
-			// assets: 'docs',
+			pages: 'docs',
+			assets: 'docs',
 			fallback: '404.html',
-			// precompress: false, 
-			// strict: true
+			precompress: false, 
+			strict: true
 		}),
 		paths: {
 			base: '/arolon',
