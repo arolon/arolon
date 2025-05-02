@@ -1,18 +1,30 @@
 <script lang="ts">
-	import { base } from '$app/paths'; // Import base path helper
+	import { base } from '$app/paths';
 
 	const games = [
-		// {
-		// 	id: 'game-one',
-		// 	title: 'My First Awesome Game',
-		// 	description: 'A brief description of what this game is about and maybe the tech used.',
-		// 	buildPath: '/unity-builds/game-one/index.html'
-		// },
+		{
+			id: 'game-one',
+			title: 'Dark Forest Sprint',
+			description: 'Dash through ethereal landscapes in this thrilling endless runner! How long can you evade the spectral obstacles?',
+			buildPath: '/unity-builds/GhostRunner/index.html'
+		},
 		{
 			id: 'game-two',
-			title: 'Project Runner',
-			description: 'An exciting endless runner challenge built with Unity.',
-			buildPath: '/unity-builds/GhostRunner/index.html'
+			title: 'RPS Showdown',
+			description: 'Challenge the AI in the timeless classic! Can you outsmart the machine in Rock, Paper, Scissors?',
+			buildPath: '/unity-builds/RockPaperScissors/index.html'
+		},
+		{
+			id: 'game-three',
+			title: 'Feline Pursuit AI Demo',
+			description: 'Watch out! This demo showcases NPC line-of-sight detection and pursuit behavior. Don\'t let the cat catch you!',
+			buildPath: '/unity-builds/CatChase/index.html'
+		},
+		{
+			id: 'game-four',
+			title: 'Rio\'s Aerial Adventure',
+			description: 'Take flight as Rio! Soar through the skies, blast enemies, and skillfully dodge bullets and cages in this action-packed shooter.',
+			buildPath: '/unity-builds/RioGame/index.html'
 		}
 	];
 
