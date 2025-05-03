@@ -10,7 +10,7 @@
 </script>
 
 <svelte:head>
-	<title>Gianmarco Cavallo — Blog</title>
+	<title>Felipe Rolon - Articles</title>
 </svelte:head>
 
 <div class="articlesContainer">
@@ -30,7 +30,7 @@
 				</p>
 
 				<a
-					href={article.id ? `/blog/${article.id}` : article.link}
+					href={article.id ? `./blog/${article.id}` : article.link}
 					target={!article.id ? '_blank' : '_self'}
 				>
 					<div class="button">Read Article =></div>
