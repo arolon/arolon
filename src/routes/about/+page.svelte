@@ -23,7 +23,7 @@
 		<h1>About Me</h1>
 		<!-- Update the paragraph with your summary -->
 		<p class="intro-paragraph">
-			I'm Felipe Rolon, a versatile Full-Stack Developer and Cyber Security Specialist based in Bogota, Colombia.
+			I'm Felipe Rolon, a versatile Full-Stack Developer and Cyber Security Specialist based in Toronto, Canada.
 			With hands-on experience in cloud computing (especially AWS), application integration, and the full software development lifecycle,
 			I enjoy translating user needs into robust technical solutions. My expertise spans Python, JavaScript (including Node.js, React, Svelte),
 			and cloud infrastructure, always with a focus on security and performance.
